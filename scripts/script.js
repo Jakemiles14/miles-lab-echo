@@ -1,7 +1,7 @@
 $(function() {
     console.log("document is ready!");
 
-    var userName, nameLength, nameMsg, nameReverse = ""; 
+    var userName, nameLength, nameMsg, nameReverse, stringCapital = ""; 
 
     $('#btnName').click(function() {
         userName = $('#userName').val(); 
@@ -11,7 +11,11 @@ $(function() {
 
         nameLength = getStringLength(userName);
         nameMsg = "The Length of your name is: ";
-        $('#nameOutput').append(nameMsg + nameLength + "<br/>"); 
+        $('#nameOutput').append(nameMsg + nameLength + "<br/>");
+        
+        stringCapital = capitalizeString(userName);
+        nameMsg = "Your name in capital letters is: ";
+        $('#nameOutput').append(nameMsg + stringCapital + "<br/>");
 
         // console.log(reverseString(userName)); 
 
@@ -53,7 +57,6 @@ $(function() {
             $(elementId).val(" "); 
         }
       
-        
     } 
 
     function stringArrayPosition(stringVal){
@@ -65,4 +68,10 @@ $(function() {
 
     }
 
-});
+    function capitalizeString(stringVal){
+        var capitalString = stringVal.toUpperCase();
+        return capitalString;
+} ;
+    }
+
+);
